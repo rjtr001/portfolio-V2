@@ -2,9 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  base: "/portfolio-V2/", // <-- ADD THIS LINE
+  base: "/portfolio-V2/", // <-- This line is critical!
   plugins: [react()],
   resolve: {
     alias: {
