@@ -1,0 +1,282 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 246 84% 58%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 172 66% 50%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 246 84% 58%;
+
+    --radius: 0.75rem;
+    
+    /* Expanded color palette */
+    --indigo-50: 238 100% 98%;
+    --indigo-100: 238 100% 95%;
+    --indigo-200: 238 100% 90%;
+    --indigo-300: 238 91% 83%;
+    --indigo-400: 239 84% 74%;
+    --indigo-500: 239 84% 67%;
+    --indigo-600: 239 84% 58%;
+    --indigo-700: 239 84% 48%;
+    --indigo-800: 240 70% 38%;
+    --indigo-900: 242 48% 30%;
+    
+    --teal-50: 166 76% 97%;
+    --teal-100: 167 85% 89%;
+    --teal-200: 168 84% 78%;
+    --teal-300: 171 77% 64%;
+    --teal-400: 172 66% 50%;
+    --teal-500: 173 80% 40%;
+    --teal-600: 175 84% 32%;
+    --teal-700: 175 77% 26%;
+    --teal-800: 176 69% 22%;
+    --teal-900: 176 61% 19%;
+    
+    --purple-50: 270 100% 98%;
+    --purple-100: 269 100% 95%;
+    --purple-200: 269 100% 90%;
+    --purple-300: 269 97% 85%;
+    --purple-400: 270 95% 75%;
+    --purple-500: 270 91% 65%;
+    --purple-600: 271 91% 55%;
+    --purple-700: 272 72% 47%;
+    --purple-800: 273 67% 39%;
+    --purple-900: 274 66% 32%;
+    
+    --rose-50: 356 100% 97%;
+    --rose-100: 356 100% 94%;
+    --rose-200: 353 96% 90%;
+    --rose-300: 353 95% 81%;
+    --rose-400: 351 95% 71%;
+    --rose-500: 350 89% 60%;
+    --rose-600: 347 77% 50%;
+    --rose-700: 345 83% 41%;
+    --rose-800: 343 80% 35%;
+    --rose-900: 342 75% 30%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 6.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 246 80% 65%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 172 66% 48%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 246 80% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+  
+  ::selection {
+    @apply bg-primary/20 text-primary;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    @apply bg-gradient-to-br from-indigo-500/10 via-teal-500/5 to-background;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-card via-card to-muted/80;
+  }
+
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl;
+  }
+  
+  .dark .glass {
+    @apply bg-black/20 border-white/10;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-12 text-center relative pb-4 
+    after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 
+    after:w-24 after:h-1 after:bg-gradient-to-r after:from-indigo-600 after:via-purple-500 after:to-teal-500 after:rounded-full;
+  }
+  
+  .hover-card {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1;
+  }
+  
+  /* Enhanced typed text effect */
+  .typed-text::after {
+    content: '|';
+    @apply animate-blink ml-0.5;
+  }
+}
+
+@layer utilities {
+  /* Enhanced animation keyframes */
+  @keyframes shine {
+    from {
+      background-position: 200% center;
+    }
+    to {
+      background-position: -200% center;
+    }
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes scale-in {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    25% {
+      transform: translateY(-10px) translateX(5px);
+    }
+    50% {
+      transform: translateY(0) translateX(10px);
+    }
+    75% {
+      transform: translateY(10px) translateX(5px);
+    }
+  }
+  
+  @keyframes pulse-border {
+    0% {
+      border-color: rgba(99, 102, 241, 0.2);
+    }
+    50% {
+      border-color: rgba(99, 102, 241, 0.8);
+    }
+    100% {
+      border-color: rgba(99, 102, 241, 0.2);
+    }
+  }
+  
+  @keyframes gradient-move {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Animation classes */
+  .animate-shine {
+    background: linear-gradient(to right, 
+      theme('colors.foreground') 20%, 
+      theme('colors.primary.DEFAULT') 40%, 
+      theme('colors.primary.DEFAULT') 60%, 
+      theme('colors.foreground') 80%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+  }
+  
+  .animate-blink {
+    animation: blink 0.8s step-end infinite;
+  }
+  
+  .animate-scale-in {
+    animation: scale-in 0.8s ease-out forwards;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-border {
+    animation: pulse-border 2s infinite;
+  }
+  
+  .animate-gradient-move {
+    background-size: 300% 300%;
+    animation: gradient-move 5s ease infinite;
+  }
+}
+
+/* Keep existing code */
+
